@@ -1,0 +1,21 @@
+version: 1
+assignment: upfront-runs
+
+goals:
+  - id: idempotence
+    level: analyse
+    goal: >
+      Trace what your merge does when the same replica state arrives twice, and
+      work out whether the total can move.
+
+  - id: commutativity
+    level: evaluate
+    goal: >
+      Judge whether two replicas merging the same states in different orders
+      must agree, and defend the answer against your own implementation.
+
+  - id: why-not-sum
+    level: analyse
+    goal: >
+      Work out what combining two replicas' tallies by maximum buys over
+      adding them, and when the difference shows.
