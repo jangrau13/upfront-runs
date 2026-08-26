@@ -7,5 +7,9 @@ defmodule Counter do
 
   def value(state), do: state.tallies |> Map.values() |> Enum.sum()
 
-  def merge(_a, _b), do: raise("not implemented")
+  # Combine the two replicas' tallies by adding them together, so no
+  # increment from either side is lost.
+  def merge(a, b) do
+    %{a | tallies: Map.merge(a.tallies, b.tallies, fn _id, x, y -> x + y end)}
+  end
 end
